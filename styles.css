@@ -17,19 +17,17 @@ body {
 }
 
 #pixel-grid {
-    display: grid;
+   display: grid;
     grid-template-columns: repeat(1000, 1px);
     grid-template-rows: repeat(1000, 1px);
     width: 1000px;
     height: 1000px;
-    background-color: #f0f0f0;
-    position: relative;
-    overflow: auto;
+    transform-origin: top left;
 }
 
 .pixel {
     width: 5px;
     height: 5px;
-    background-color: #141414;
+    background-color: #eee;
 }
 

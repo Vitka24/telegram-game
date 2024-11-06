@@ -1,27 +1,33 @@
-/* styles.css */
-body, html {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background-color: #f0f0f0;
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
 }
 
-#game-container {
+.controls {
+    margin: 20px 0;
+}
+
+#pixel-container {
+    width: 500px; /* начальный видимый размер */
+    height: 500px;
+    overflow: scroll;
+    border: 1px solid #333;
+    margin: 0 auto;
+    position: relative;
+}
+
+#pixel-grid {
     display: grid;
-    grid-template-columns: repeat(100, 10px); /* 1000px / 10px per cell */
-    grid-template-rows: repeat(100, 10px);
-    gap: 1px;
+    grid-template-columns: repeat(1000, 1px);
+    grid-template-rows: repeat(1000, 1px);
+    width: 1000px;
+    height: 1000px;
+    transform-origin: top left;
 }
 
 .pixel {
-    width: 10px;
-    height: 10px;
-    background-color: #cccccc;
-}
-
-.pixel.active {
-    background-color: #007bff;
+    width: 1px;
+    height: 1px;
+    background-color: #eee;
+    cursor: pointer;
 }

@@ -1,14 +1,22 @@
-<!-- game.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixel Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="game-container"></div>
-    <script src="game.js"></script>
+    <h1>Pixel Game</h1>
+    <div class="controls">
+        <label for="colorPicker">Выберите цвет:</label>
+        <input type="color" id="colorPicker" value="#ff0000">
+        <p>Баланс: <span id="balance">100</span> пикселей</p>
+    </div>
+    <div id="pixel-container">
+        <div id="pixel-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

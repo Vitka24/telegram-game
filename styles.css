@@ -1,0 +1,27 @@
+/* styles.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #f0f0f0;
+}
+
+#game-container {
+    display: grid;
+    grid-template-columns: repeat(100, 10px); /* 1000px / 10px per cell */
+    grid-template-rows: repeat(100, 10px);
+    gap: 1px;
+}
+
+.pixel {
+    width: 10px;
+    height: 10px;
+    background-color: #cccccc;
+}
+
+.pixel.active {
+    background-color: #007bff;
+}

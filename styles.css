@@ -22,12 +22,14 @@ body {
     grid-template-rows: repeat(1000, 1px);
     width: 1000px;
     height: 1000px;
-    transform-origin: top left;
+    background-color: #f0f0f0;
+    position: relative;
+    overflow: auto;
 }
 
 .pixel {
     width: 1px;
     height: 1px;
-    background-color: #eee;
-    cursor: pointer;
+    background-color: #ccc;
 }
+

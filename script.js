@@ -2,15 +2,17 @@ const balanceElement = document.getElementById('balance');
 let balance = 100; // Начальный баланс
 
 const colorPicker = document.getElementById('colorPicker');
-const pixelGrid = document.getElementById('pixel-grid');
+const gridContainer = document.getElementById('pixel-grid');
 
-// Генерация сетки пикселей 1000x1000
 for (let i = 0; i < 1000 * 1000; i++) {
     const pixel = document.createElement('div');
     pixel.classList.add('pixel');
-    pixel.addEventListener('click', () => selectPixel(pixel));
-    pixelGrid.appendChild(pixel);
+    pixel.addEventListener('click', () => {
+        pixel.style.backgroundColor = '#000'; // Например, закрашивает пиксель в чёрный при клике
+    });
+    gridContainer.appendChild(pixel);
 }
+
 
 function selectPixel(pixel) {
     if (balance > 0) {

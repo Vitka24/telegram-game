@@ -28,8 +28,8 @@ body {
 }
 
 .pixel {
-    width: 1px;
-    height: 1px;
+    width: 5px;
+    height: 5px;
     background-color: #ccc;
 }
 

@@ -4,7 +4,7 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 import asyncio
 
 API_TOKEN = '7919708433:AAFy4DXcHZJlfHi7jzAXzA1UCYDkzsb-vRs'
-WEBAPP_URL = "https://github.com/Vitka24/telegram-game.git"  # Замените на URL, где размещена ваша игра
+WEBAPP_URL = "https://vitka24.github.io/telegram-game/"  # Замените на URL, где размещена ваша игра
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher()
@@ -24,5 +24,8 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+
+
 
 

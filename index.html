@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixel Game</title>
+    <title>Telegram WebApp - Pixel Game</title>
     <link rel="stylesheet" href="styles.css">
-<script src="script.js" defer></script>
-
 </head>
 <body>
-    <h1>Pixel Game</h1>
-    <div class="controls">
-        <label for="colorPicker">Выберите цвет:</label>
-        <input type="color" id="colorPicker" value="#ff0000">
-        <p>Баланс: <span id="balance">100</span> пикселей</p>
-    </div>
-    <div id="pixel-container">
-        <div id="pixel-grid"></div>
-    </div>
+    <header>
+        <div class="profile-info">
+            <h3 id="user-name">Привет, пользователь!</h3>
+            <p id="user-balance">Баланс: 100 TON</p>
+        </div>
+        <div class="counter">
+            <p>Свободные пиксели: <span id="available-pixels">1000000</span></p>
+        </div>
+    </header>
+
+    <main>
+        <div id="pixel-grid" class="grid-container"></div>
+    </main>
+
+    <footer>
+        <button id="buy-pixel-btn">Купить пиксель за 1 TON</button>
+    </footer>
 
     <script src="script.js"></script>
 </body>

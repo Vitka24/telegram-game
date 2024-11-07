@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telegram WebApp - Pixel Game</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Добавим стили масштабирования для улучшения взаимодействия */
+        .zoom-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,7 +32,10 @@
     </header>
 
     <main>
-        <div id="pixel-grid" class="grid-container"></div>
+        <!-- Контейнер для масштабирования пиксельной сетки -->
+        <div class="zoom-container">
+            <div id="pixel-grid" class="grid-container"></div>
+        </div>
     </main>
 
     <footer>

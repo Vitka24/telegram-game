@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const pixelGrid = document.getElementById('pixel-grid');
     const availablePixelsCounter = document.getElementById('available-pixels');
+    const userBalanceDisplay = document.getElementById('user-balance');
     let availablePixels = 1000000;
     let userBalance = 100;
     let purchasedPixels = new Set();
@@ -14,10 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
         pixelGrid.appendChild(pixel);
     }
 
+    // Обновление интерфейса баланса
+    userBalanceDisplay.textContent = `Баланс: ${userBalance} TON`;
+    availablePixelsCounter.textContent = availablePixels;
+
     // Обработчик клика по пикселю
     function handlePixelClick(index) {
+        const pixel = pixelGrid.children[index];
+
         if (purchasedPixels.has(index)) {
-            alert("Вы уже купили этот пиксель!");
+            alert("Этот пиксель уже куплен вами. Вы можете его редактировать.");
+            editPixel(index);
             return;
         }
 
@@ -28,25 +36,29 @@ document.addEventListener('DOMContentLoaded', () => {
             purchasedPixels.add(index);
 
             // Обновляем интерфейс
-            document.getElementById('user-balance').textContent = `Баланс: ${userBalance} TON`;
+            userBalanceDisplay.textContent = `Баланс: ${userBalance} TON`;
             availablePixelsCounter.textContent = availablePixels;
 
             // Изменяем цвет пикселя
-            const pixel = pixelGrid.children[index];
             pixel.style.backgroundColor = '#000';
 
             alert("Вы успешно купили пиксель!");
 
             // Позволяем редактировать пиксель
             editPixel(index);
-        } else {
-            alert("Недостаточно средств!");
+        } else if (confirmPurchase) {
+            alert("Недостаточно средств для покупки пикселя.");
         }
     }
 
     // Функция редактирования пикселя
     function editPixel(index) {
         const pixel = pixelGrid.children[index];
+        
+        // Удаляем предыдущий контент, если он есть
+        pixel.innerHTML = '';
+
+        // Получаем данные для пикселя
         const imageUrl = prompt("Введите URL картинки для пикселя");
         const link = prompt("Введите ссылку для пикселя");
         const text = prompt("Введите название пикселя");
@@ -61,10 +73,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (link) {
-            const a = document.createElement('a');
-            a.href = link;
-            a.textContent = text;
-            pixel.appendChild(a);
+            const linkElement = document.createElement('a');
+            linkElement.href = link;
+            linkElement.target = '_blank';
+            linkElement.title = text || 'Пиксель';
+            pixel.appendChild(linkElement);
+            if (!imageUrl) {
+                linkElement.textContent = text || 'Ссылка';
+            }
         }
     }
 

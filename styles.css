@@ -23,6 +23,7 @@ h3, p {
 }
 
 .grid-container {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(1000, 1px);
     grid-template-rows: repeat(1000, 1px);
@@ -31,7 +32,9 @@ h3, p {
     height: 80vh;
     margin: 20px 0;
     background-color: #f0f0f0;
-    overflow: auto;
+    overflow: hidden; /* Hide overflow for cleaner navigation */
+    transform-origin: top left; /* Important for scaling */
+    cursor: grab;
 }
 
 .pixel {
@@ -40,6 +43,10 @@ h3, p {
     background-color: #ccc;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+.pixel.bought {
+    background-color: #4CAF50;
 }
 
 footer {

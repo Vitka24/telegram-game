@@ -1,13 +1,10 @@
 /* styles.css */
 
-/* Общие стили */
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
 header {
@@ -15,40 +12,25 @@ header {
     text-align: center;
 }
 
-#pixel-grid-container {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Основной стиль сетки */
 #pixel-grid {
     display: grid;
     grid-template-columns: repeat(1000, 10px);
     grid-template-rows: repeat(1000, 10px);
+    width: 1000px;
+    height: 1000px;
     background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    overflow: auto;
 }
 
-/* Пиксели */
 .pixel {
     width: 10px;
     height: 10px;
     background-color: #ccc;
-    border: 0.5px solid #ddd;
+    border: 1px solid #ddd;
     cursor: pointer;
 }
 
-/* Адаптивность для мобильных устройств */
-@media (max-width: 1000px) {
-    .pixel {
-        width: 10px;
-        height: 10px;
-    }
-    #pixel-grid {
-        grid-template-columns: repeat(1000, 10px);
-        grid-template-rows: repeat(1000, 10px);
-    }
+.pixel.selected {
+    background-color: #000;
 }

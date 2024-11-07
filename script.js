@@ -6,6 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let userBalance = 100;
     let purchasedPixels = new Set();
 
+    // Инициализация Panzoom
+    const panzoomInstance = Panzoom(pixelGrid, {
+        maxScale: 3, // Максимальный уровень зума
+        minScale: 0.5, // Минимальный уровень зума
+        contain: 'outside'
+    });
+
+    // Подключаем возможность масштабирования колесиком мыши
+    pixelGrid.parentElement.addEventListener('wheel', panzoomInstance.zoomWithWheel);
+
     // Создание сетки пикселей
     for (let i = 0; i < 1000000; i++) {
         const pixel = document.createElement('div');

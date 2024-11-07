@@ -32,8 +32,8 @@ main {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(1000, 1px);
-    grid-template-rows: repeat(1000, 1px);
+    grid-template-columns: repeat(1000, 10px);
+    grid-template-rows: repeat(1000, 10px);
     gap: 1px;
     width: 1000px;
     height: 1000px;

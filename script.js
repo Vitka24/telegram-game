@@ -1,10 +1,37 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const pixelGrid = document.getElementById('pixel-grid');
+    const pixelGridContainer = document.getElementById('pixel-grid-container');
     let availablePixels = 1000000;
     let userBalance = 100;
     let purchasedPixels = new Set();
+
+    // Инициализация Panzoom с базовым масштабом
+    const panzoomInstance = Panzoom(pixelGrid, {
+        maxScale: 5, // Максимальный зум
+        minScale: 0.1, // Минимальный зум
+        contain: 'outside'
+    });
+
+    // Автоматическое масштабирование до полного размещения в контейнере
+    function setInitialScale() {
+        const containerWidth = pixelGridContainer.offsetWidth;
+        const containerHeight = pixelGridContainer.offsetHeight;
+        const gridWidth = pixelGrid.offsetWidth;
+        const gridHeight = pixelGrid.offsetHeight;
+
+        // Рассчитываем минимальный масштаб, чтобы сетка уместилась в контейнере
+        const scaleX = containerWidth / gridWidth;
+        const scaleY = containerHeight / gridHeight;
+        const scale = Math.min(scaleX, scaleY);
+
+        // Применяем масштаб
+        panzoomInstance.zoom(scale, { animate: true });
+    }
+
+    setInitialScale(); // Устанавливаем начальный масштаб
+
+    // Подключаем зум колесом мыши
+    pixelGridContainer.addEventListener('wheel', panzoomInstance.zoomWithWheel);
 
     // Создание сетки пикселей
     for (let i = 0; i < 1000000; i++) {
@@ -55,4 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Недостаточно средств для покупки пикселя!");
         }
     }
+
+    // Обновляем масштаб при изменении размера окна
+    window.addEventListener('resize', setInitialScale);
 });

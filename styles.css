@@ -12,16 +12,25 @@ header {
     text-align: center;
 }
 
+/* Основной стиль сетки */
 #pixel-grid {
     display: grid;
     grid-template-columns: repeat(1000, 10px);
     grid-template-rows: repeat(1000, 10px);
-    width: 1000px;
-    height: 1000px;
     background-color: #f4f4f4;
-    border: 1px solid #ddd;
-    overflow: auto;
+    transform-origin: 0 0;
 }
+
+/* Контейнер для сетки */
+#pixel-grid-container {
+    width: 100vw;  /* Используем всю ширину экрана */
+    height: 100vh; /* Используем всю высоту экрана */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .pixel {
     width: 10px;
@@ -33,4 +42,15 @@ header {
 
 .pixel.selected {
     background-color: #000;
+}
+/* styles.css */
+
+/* Контейнер для сетки */
+#pixel-grid-container {
+    width: 100vw;  /* Используем всю ширину экрана */
+    height: 100vh; /* Используем всю высоту экрана */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

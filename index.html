@@ -3,28 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram WebApp - Pixel Game</title>
+    <title>Pixel Grid</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div class="profile-info">
-            <h3 id="user-name">Привет, пользователь!</h3>
-            <p id="user-balance">Баланс: 100 TON</p>
-        </div>
-        <div class="counter">
-            <p>Свободные пиксели: <span id="available-pixels">1000000</span></p>
-        </div>
+        <h3>Привет, пользователь!</h3>
+        <p>Баланс: 100 TON</p>
+        <p>Свободные пиксели: <span id="available-pixels">1000000</span></p>
     </header>
-
+    
     <main>
-        <div id="pixel-grid" class="grid-container"></div>
+        <!-- Контейнер для масштабирования и перемещения -->
+        <div id="zoom-container">
+            <!-- Сетка пикселей -->
+            <div id="pixel-grid" class="grid-container"></div>
+        </div>
     </main>
 
-    <footer>
-        <button id="buy-pixel-btn">Купить пиксель за 1 TON</button>
-    </footer>
-
+    <script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

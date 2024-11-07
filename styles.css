@@ -35,8 +35,8 @@ main {
     grid-template-columns: repeat(1000, 1px);
     grid-template-rows: repeat(1000, 1px);
     gap: 1px;
-    width: 1000px;
-    height: 1000px;
+    width: 100000px;
+    height: 100000px;
     background-color: #f0f0f0;
     overflow: auto;
     border: 2px solid #ccc;

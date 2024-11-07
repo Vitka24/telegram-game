@@ -1,32 +1,10 @@
+// script.js
+
 document.addEventListener('DOMContentLoaded', () => {
     const pixelGrid = document.getElementById('pixel-grid');
-    const pixelGridContainer = document.getElementById('pixel-grid-container');
     let availablePixels = 1000000;
     let userBalance = 100;
     let purchasedPixels = new Set();
-
-    // Инициализация Panzoom с настройками
-    const panzoomInstance = Panzoom(pixelGrid, {
-        maxScale: 5, 
-        minScale: 0.05, 
-        contain: 'outside'
-    });
-
-    function setInitialScale() {
-        const containerWidth = pixelGridContainer.offsetWidth;
-        const containerHeight = pixelGridContainer.offsetHeight;
-        const gridWidth = pixelGrid.offsetWidth;
-        const gridHeight = pixelGrid.offsetHeight;
-
-        const scaleX = containerWidth / gridWidth;
-        const scaleY = containerHeight / gridHeight;
-        const scale = Math.min(scaleX, scaleY);
-
-        panzoomInstance.zoom(scale, { animate: true });
-    }
-
-    setInitialScale();
-    pixelGridContainer.addEventListener('wheel', panzoomInstance.zoomWithWheel);
 
     // Создание сетки пикселей
     for (let i = 0; i < 1000000; i++) {
@@ -77,6 +55,5 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Недостаточно средств для покупки пикселя!");
         }
     }
-
-    window.addEventListener('resize', setInitialScale);
 });
+

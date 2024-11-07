@@ -42,7 +42,7 @@ header {
 }
 
 /* Адаптивность для мобильных устройств */
-@media (max-width: 10000px) {
+@media (max-width: 1000px) {
     .pixel {
         width: 10px;
         height: 10px;

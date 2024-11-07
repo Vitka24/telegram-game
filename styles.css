@@ -44,8 +44,8 @@ header {
 /* Адаптивность для мобильных устройств */
 @media (max-width: 10000px) {
     .pixel {
-        width: 20px;
-        height: 20px;
+        width: 10px;
+        height: 10px;
     }
     #pixel-grid {
         grid-template-columns: repeat(1000, 10px);
